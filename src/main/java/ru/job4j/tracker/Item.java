@@ -7,6 +7,15 @@ public class Item {
     private int id;
     private String name;
 
+    @Override
+    public String toString() {
+        return "Item{" +
+                "created=" + created +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
     public Item() {
 
     }
