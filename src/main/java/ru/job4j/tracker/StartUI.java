@@ -22,6 +22,10 @@ public class StartUI {
         for (Item it : itemTest2) {
             System.out.println(it.getName());
         }
+
+        System.out.println();
+        track.replace(3, item3);
+
         //System.out.println(item.getCreated().format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss")));
         //System.out.println(item.toString());
 

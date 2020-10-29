@@ -14,11 +14,12 @@ public class Tracker {
     }
 
     public boolean replace(int id, Item item) {
-        boolean rsl = true;
-        items[indexOf(id)].setName(item.getName());
-        items[indexOf(id)] = item;
-
-        return true;
+        if (items[indexOf(id)] != null) {
+            item.setId(id);
+            items[indexOf(id)] = item;
+            return true;
+        }
+        return false;
     }
 
     public Item[] findAll() {
