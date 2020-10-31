@@ -9,11 +9,9 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "created=" + created +
-                ", id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return  "id=" + id +
+                ", name=" + name +
+                ", created='" + created;
     }
 
     public Item() {
