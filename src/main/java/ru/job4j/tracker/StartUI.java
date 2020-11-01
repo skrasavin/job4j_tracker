@@ -4,62 +4,85 @@ import java.time.format.DateTimeFormatter;
 
 public class StartUI{
 
+    public static void createItem(Input input, Tracker tracker) {
+        System.out.println("=== Create a new Item ====");
+        String name = input.askStr("Enter name: ");
+        Item item = new Item(name);
+        tracker.add(item);
+    }
+
+    public static void showAllItems(Tracker tracker) {
+        System.out.println("=== Show all items ====");
+        Item[] items = tracker.findAll();
+        for (Item it : items) {
+            System.out.println(it.getId() + "." + it.getName());
+        }
+    }
+
+    public static void editItem(Input input, Tracker tracker) {
+        System.out.println("=== Edit Item ====");
+        int id = Integer.parseInt(input.askStr("Enter id: "));
+        String name = input.askStr("Enter name: ");
+        Item item = new Item(name);
+        if (tracker.replace(id, item)) {
+            System.out.println("Successfully");
+        } else {
+            System.out.println("Failure");
+        }
+    }
+
+    public static void deleteItem(Input input, Tracker tracker) {
+        System.out.println("=== Delete Item ====");
+        int id = Integer.parseInt(input.askStr("Enter id: "));
+        if (tracker.delete(id)) {
+            System.out.println("Successfully");
+        } else {
+            System.out.println("Failure");
+        }
+    }
+
+    public static void findItemById(Input input, Tracker tracker) {
+        System.out.println("=== Find item by id ====");
+        int id = Integer.parseInt(input.askStr("Enter id: "));
+        Item item = tracker.findById(id);
+        if (item != null) {
+            System.out.println(item);
+        } else {
+            System.out.println("Заявка с таким id не найдена");
+        }
+    }
+
+    public static void findItemsByName(Input input, Tracker tracker) {
+        System.out.println("=== Find items by name ====");
+        String name = input.askStr("Enter name: ");
+        Item[] items = tracker.findByName(name);
+        if (items.length > 0) {
+            for (Item it : items) {
+                System.out.println(it.toString());
+            }
+            System.out.println();
+        } else {
+            System.out.println("Заявки с таким именем не найдены");
+        }
+    }
+
     public void init(Input input, Tracker tracker) {
         boolean run = true;
         while (run) {
             this.showMenu();
             int select = Integer.parseInt(input.askStr("Select: "));
             if (select == 0) {
-                System.out.println("=== Create a new Item ====");
-                String name = input.askStr("Enter name: ");
-                Item item = new Item(name);
-                tracker.add(item);
+                StartUI.createItem(input, tracker);
             } else if (select == 1) {
-                System.out.println("=== Show all items ====");
-                Item[] items = tracker.findAll();
-                for (Item it : items) {
-                    System.out.println(it.getId() + "." + it.getName());
-                }
+                StartUI.showAllItems(tracker);
             }else if (select == 2) {
-                System.out.println("=== Edit Item ====");
-                int id = Integer.parseInt(input.askStr("Enter id: "));
-                String name = input.askStr("Enter name: ");
-                Item item = new Item(name);
-                if (tracker.replace(id, item)) {
-                    System.out.println("Successfully");
-                } else {
-                    System.out.println("Failure");
-                }
+                StartUI.editItem(input, tracker);
             }else if (select == 3) {
-                System.out.println("=== Delete Item ====");
-                int id = Integer.parseInt(input.askStr("Enter id: "));
-                if (tracker.delete(id)) {
-                    System.out.println("Successfully");
-                } else {
-                    System.out.println("Failure");
-                }
+                StartUI.deleteItem(input, tracker);
             }else if (select == 4) {
-                System.out.println("=== Find item by id ====");
-                int id = Integer.parseInt(input.askStr("Enter id: "));
-                Item item = tracker.findById(id);
-                if (item != null) {
-                    System.out.println(item);
-                } else {
-                    System.out.println("Заявка с таким id не найдена");
-                }
-
+                StartUI.findItemById(input, tracker);
             }else if (select == 5) {
-                System.out.println("=== Find items by name ====");
-                String name = input.askStr("Enter name: ");
-                Item[] items = tracker.findByName(name);
-                if (items.length > 0) {
-                    for (Item it : items) {
-                        System.out.println(it.toString());
-                    }
-                    System.out.println();
-                } else {
-                    System.out.println("Заявки с таким именем не найдены");
-                }
+                StartUI.findItemsByName(input, tracker);
             } else if (select == 6) {
                 run = false;
             }
