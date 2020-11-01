@@ -4,6 +4,7 @@ import org.junit.Test;
 import java.util.Scanner;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
+import org.hamcrest.core.IsNull;
 
 public class StartUITest {
 
@@ -18,13 +19,32 @@ public class StartUITest {
         assertThat(created.getName(), is(expected.getName()));
     }
 
-    public void testShowAllItems() {
+    @Test
+    public void whenReplaceItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("new item");
+        tracker.add(item);
+        String[] answers = {
+                String.valueOf(item.getId()), // id сохраненной заявки в объект tracker.
+                "replaced item"
+        };
+        StartUI.editItem(new StubInput(answers), tracker);
+        Item replaced = tracker.findById(item.getId());
+        assertThat(replaced.getName(), is("replaced item"));
     }
 
-    public void testEditItem() {
-    }
-
+    @Test
     public void testDeleteItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("new item");
+        tracker.add(item);
+        String[] answers = {
+                String.valueOf(item.getId()), // id удалённой заявки
+                "replaced item"
+        };
+        StartUI.deleteItem(new StubInput(answers), tracker);
+        Item replaced = tracker.findById(item.getId());
+        assertThat(replaced, is(IsNull.nullValue()));
     }
 
     public void testFindItemById() {
