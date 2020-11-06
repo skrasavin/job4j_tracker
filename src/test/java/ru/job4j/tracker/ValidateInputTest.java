@@ -22,10 +22,10 @@ public class ValidateInputTest {
     public void whenValidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"three","three", "2"}
+                new String[] {"three", "1"}
         );
         ValidateInput input = new ValidateInput(out, in);
-        int selected = input.askInt("Enter menu:");
-        assertThat(selected, is(2));
+        input.askInt("Enter menu:");
+        assertThat(out.toString(), is("Please enter validate data again.\n"));
     }
 }
