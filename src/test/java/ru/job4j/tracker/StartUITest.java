@@ -6,6 +6,8 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import org.hamcrest.core.IsNull;
 
+import javax.sound.midi.Track;
+
 public class StartUITest {
 
     @Test
@@ -26,6 +28,9 @@ public class StartUITest {
     @Test
     public void showAllActions() {
         Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        tracker.add(new Item("First Item"));
+        tracker.add(new Item("Second Item"));
         Input in = new StubInput(
                 new String[]{"0", "1"}
         );
@@ -33,12 +38,14 @@ public class StartUITest {
                 new ShowAllAction(out),
                 new ExitAction(out)
         };
-        new StartUI(out).init(in, new Tracker(), actions);
+        new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
                         "0. Show all items" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
                         "==== Show all items ====" + System.lineSeparator() +
+                        "1.First Item" + System.lineSeparator() +
+                        "2.Second Item" + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Show all items" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
@@ -83,6 +90,8 @@ public class StartUITest {
     @Test
     public void whenFindById() {
         Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        tracker.add(new Item("First Item"));
         Input in = new StubInput(
                 new String[]{"0", "1", "1"}
         );
@@ -90,12 +99,13 @@ public class StartUITest {
                 new FindByIdAction(out),
                 new ExitAction(out)
         };
-        new StartUI(out).init(in, new Tracker(), actions);
+        new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
                         "0. Find item by id" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
                         "==== Find item by id ====" + System.lineSeparator() +
+                        "id=1, name=First Item" + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find item by id" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
@@ -105,19 +115,22 @@ public class StartUITest {
     @Test
     public void whenFindByName() {
         Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        tracker.add(new Item("First Item"));
         Input in = new StubInput(
-                new String[]{"0", "1", "1"}
+                new String[]{"0", "First Item", "1"}
         );
         UserAction[] actions = {
                 new FindByNameAction(out),
                 new ExitAction(out)
         };
-        new StartUI(out).init(in, new Tracker(), actions);
+        new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
                         "0. Find items by name" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
                         "==== Find items by name ====" + System.lineSeparator() +
+                        "id=1, name=First Item" + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find items by name" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()

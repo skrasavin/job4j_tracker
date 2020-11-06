@@ -17,7 +17,7 @@ public class ShowAllAction implements UserAction{
         out.println("==== Show all items ====");
         Item[] items = tracker.findAll();
         for (Item it : items) {
-            System.out.println(it.getId() + "." + it.getName());
+            out.println(it.getId() + "." + it.getName());
         }
         return true;
     }

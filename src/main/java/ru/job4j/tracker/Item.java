@@ -10,8 +10,7 @@ public class Item {
     @Override
     public String toString() {
         return  "id=" + id +
-                ", name=" + name +
-                ", created='" + created;
+                ", name=" + name;
     }
 
     public Item() {
@@ -50,3 +49,11 @@ public class Item {
         this.name = name;
     }
 }
+/*
+    @Override
+    public String toString() {
+        return  "id=" + id +
+                ", name=" + name +
+                ", created='" + created;
+    }
+ */
