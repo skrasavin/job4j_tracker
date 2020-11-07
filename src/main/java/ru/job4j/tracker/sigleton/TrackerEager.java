@@ -1,13 +1,14 @@
 package ru.job4j.tracker.sigleton;
 import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Tracker;
 
 public class TrackerEager {
-    private static final TrackerEager INSTANCE = new TrackerEager();
+    private static final Tracker INSTANCE = new Tracker();
 
     private TrackerEager() {
     }
 
-    public static TrackerEager getInstance() {
+    public static Tracker getInstance() {
         return INSTANCE;
     }
 
@@ -16,6 +17,6 @@ public class TrackerEager {
     }
 
     public static void main(String[] args) {
-        TrackerEager tracker = TrackerEager.getInstance();
+        Tracker tracker = TrackerEager.getInstance();
     }
 }
