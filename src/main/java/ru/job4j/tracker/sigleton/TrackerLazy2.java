@@ -1,23 +1,22 @@
 package ru.job4j.tracker.sigleton;
-import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Tracker;
 
 public class TrackerLazy2 {
-    private TrackerLazy2() {
+    private void Tracker() {
     }
 
-    public static TrackerLazy2 getInstance() {
+    public static Tracker getInstance() {
         return Holder.INSTANCE;
     }
 
-    public Item add(Item model) {
-        return model;
-    }
-
     private static final class Holder {
-        private static final TrackerLazy2 INSTANCE = new TrackerLazy2();
+        private static final Tracker INSTANCE = new Tracker();
     }
 
     public static void main(String[] args) {
-        TrackerLazy2 tracker = TrackerLazy2.getInstance();
+        Tracker tracker = TrackerLazy2.getInstance();
+        Tracker tracker1 = TrackerLazy2.getInstance();
+        System.out.println(tracker);
+        System.out.println(tracker1);
     }
 }

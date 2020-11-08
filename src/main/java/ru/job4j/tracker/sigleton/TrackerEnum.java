@@ -1,15 +1,17 @@
 package ru.job4j.tracker.sigleton;
 import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Tracker;
 
 public enum TrackerEnum {
     INSTANCE;
 
-    /* Конструкторы и методы. */
-    public Item add(Item model) {
-        return model;
+    private Tracker tracker = new Tracker();
+
+    public Tracker getTracker() {
+        return tracker;
     }
 
     public static void main(String[] args) {
-        TrackerEnum tracker = TrackerEnum.INSTANCE;
+        Tracker tracker = INSTANCE.getTracker();
     }
 }

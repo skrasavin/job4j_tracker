@@ -12,10 +12,6 @@ public class TrackerEager {
         return INSTANCE;
     }
 
-    public Item add(Item model) {
-        return model;
-    }
-
     public static void main(String[] args) {
         Tracker tracker = TrackerEager.getInstance();
     }
