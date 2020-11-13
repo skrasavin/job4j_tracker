@@ -12,24 +12,18 @@ public class PriorityQueue {
      * @param task задача
      */
     public void put(Task task) {
-        if (tasks.size() == 0) {
+        int index = 0;
+        if (index == tasks.size()) {
             this.tasks.add(task);
         }
-//        for (Task element : tasks) {
-//            System.out.println("priority: " + element.getPriority());
-//            System.out.println("priorityTask: " + task.getPriority());
-//            if (task.getPriority() < element.getPriority()) {
-//                this.tasks.add(0, task);
-//                break;
-//            }
-//        }
-        for (int i = 0; i < tasks.size(); i++) {
-            if (task.getPriority() < tasks.get(i).getPriority()) {
-                this.tasks.add(i, task);
+
+        for (Task element : tasks) {
+            if (task.getPriority() < element.getPriority()) {
+                this.tasks.add(index, task);
                 break;
             }
+            index++;
         }
-
          show();
     }
     public void show() {
