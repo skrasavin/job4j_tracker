@@ -1,0 +1,27 @@
+package ru.job4j.tracker.collection.hashMap.passport;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+public class PassportOffice {
+    private Map<String, Citizen> citizens = new HashMap<>();
+
+    public boolean add(Citizen citizen) {
+        boolean rsl = false;
+        if (!citizens.containsKey(citizen.getPassport())) {
+            citizens.put(citizen.getPassport(), citizen);
+            return true;
+        }
+
+        return rsl;
+    }
+
+
+    public Citizen get(String passport) {
+        if (citizens.containsKey(passport)) {
+            return citizens.get(passport);
+        }
+        return null;
+    }
+}
