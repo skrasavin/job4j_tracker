@@ -79,13 +79,13 @@ public class StartUITest {
         Item item = tracker.add(new Item("Replaced item"));
         Item item1 = tracker.add(new Item("Replaced item1"));
         Input in = new StubInput(
-                new String[]{"0", "0", "1"}
+                new String[]{"0", "1", "1"}
         );
         ArrayList<UserAction> actions = new ArrayList<>();
         actions.add(new DeleteAction());
         actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findById(0), is(IsNull.nullValue()));
+        assertThat(tracker.findById(1), is(IsNull.nullValue()));
     }
 
     @Test

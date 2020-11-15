@@ -4,6 +4,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 public class StartUI{
     private final Output out;
@@ -25,7 +26,7 @@ public class StartUI{
             run = action.execute(input, tracker);
         }
     }
-    private void showMenu(ArrayList<UserAction> actions) {
+    private void showMenu(List<UserAction> actions) {
         out.println("Menu.");
         for (int index = 0; index < actions.size(); index++) {
             out.println(index + ". " + actions.get(index).name());
@@ -36,10 +37,9 @@ public class StartUI{
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
         Tracker tracker = new Tracker();
-        ArrayList<UserAction> actions = new ArrayList<>();
         UserAction[] userAct = new UserAction[]{new CreateAction(output), new ShowAllAction(output), new EditAction(), new DeleteAction(), new FindByIdAction(output),
                 new FindByNameAction(output), new ExitAction(output)};
-        actions.addAll(Arrays.asList(userAct));
+        ArrayList<UserAction> actions = new ArrayList<>(Arrays.asList(userAct));
 
         new StartUI(output).init(input, tracker, actions);
 
