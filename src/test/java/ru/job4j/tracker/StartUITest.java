@@ -2,9 +2,8 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 import org.hamcrest.core.IsNull;
@@ -172,5 +171,40 @@ public class StartUITest {
                                 + "0. Exit%n"
                 )
         ));
+    }
+    @Test
+    public void upSortComparable() {
+        List<Item> items = Arrays.asList(
+                new Item(5, "First Item"),
+                new Item(3, "Second Item"),
+                new Item(4, "Third Item")
+        );
+        int[] expected = new int[] {3,4,5};
+        int[] itemsTest = new int[3];
+        Collections.sort(items);
+        int i = 0;
+        for (Item item : items){
+            itemsTest[i] = item.getId();
+            i++;
+        }
+        assertThat(expected, is(itemsTest));
+   }
+
+    @Test
+    public void letterComparatorSort() {
+        List<Item> items = Arrays.asList(
+                new Item(1, "A"),
+                new Item(2, "C"),
+                new Item(3, "B")
+        );
+        String[] expected = new String[] {"A", "B", "C"};
+        String[] itemsTest = new String[3];
+        items.sort(new SortByName());
+        int i = 0;
+        for (Item item : items){
+            itemsTest[i] = item.getName();
+            i++;
+        }
+        assertThat(expected, is(itemsTest));
     }
 }
