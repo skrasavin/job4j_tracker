@@ -17,7 +17,6 @@ public class User implements Comparable<User> {
             return Integer.compare(age, o.age);
         }
         return CharSequence.compare(name, o.name);
-//        return CharSequence.compare(name, o.name);
     }
 
     @Override
