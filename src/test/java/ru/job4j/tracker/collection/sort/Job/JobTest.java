@@ -21,6 +21,16 @@ public class JobTest {
     }
 
     @Test
+    public void whenCompatorByNameAndIncreaseSecondComp() {
+        Comparator<Job> cmpNamePriority = new SortByName().thenComparing(Job::compareTo);
+        int rsl = cmpNamePriority.compare(
+                new Job("Impl task", 0),
+                new Job("Impl task", 1)
+        );
+        assertThat(rsl, lessThan(0));
+    }
+
+    @Test
     public void whenCompatorByPriorityAndIncrease() {
         Comparator<Job> cmpNamePriority = Job::compareTo;
         int rsl = cmpNamePriority.compare(
