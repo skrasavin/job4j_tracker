@@ -26,6 +26,7 @@ public class PriorityQueue {
         }
          show();
     }
+
     public void show() {
         System.out.println("size:" + tasks.size());
         for (Task el : tasks) {
@@ -33,6 +34,7 @@ public class PriorityQueue {
             System.out.println(" - priority: " + el.getPriority());
         }
     }
+
     public Task take() {
         return tasks.poll();
     }

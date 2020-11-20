@@ -7,19 +7,13 @@ public class Item implements Comparable<Item> {
     private int id;
     private String name;
 
-    @Override
-    public String toString() {
-        return  "id=" + id +
-                ", name=" + name;
-    }
-
     public Item() {
-
     }
 
     public Item(int id) {
         this.id = id;
     }
+
     public Item(String  name) {
         this.name = name;
     }
@@ -52,6 +46,12 @@ public class Item implements Comparable<Item> {
     @Override
     public int compareTo(Item o) {
         return Integer.compare(id, o.id);
+    }
+
+    @Override
+    public String toString() {
+        return  "id=" + id
+                + ", name=" + name;
     }
 }
 /*

@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-public class StartUI{
+public class StartUI {
     private final Output out;
 
     public StartUI(Output out) {
@@ -26,6 +26,7 @@ public class StartUI{
             run = action.execute(input, tracker);
         }
     }
+
     private void showMenu(List<UserAction> actions) {
         out.println("Menu.");
         for (int index = 0; index < actions.size(); index++) {
@@ -37,13 +38,20 @@ public class StartUI{
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
         Tracker tracker = new Tracker();
-        UserAction[] userAct = new UserAction[]{new CreateAction(output), new ShowAllAction(output), new EditAction(), new DeleteAction(), new FindByIdAction(output),
-                new FindByNameAction(output), new ExitAction(output)};
+        UserAction[] userAct = new UserAction[]{
+                new CreateAction(output),
+                new ShowAllAction(output),
+                new EditAction(),
+                new DeleteAction(),
+                new FindByIdAction(output),
+                new FindByNameAction(output),
+                new ExitAction(output)};
         ArrayList<UserAction> actions = new ArrayList<>(Arrays.asList(userAct));
 
         new StartUI(output).init(input, tracker, actions);
 
-        //System.out.println(item.getCreated().format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss")));
+        //System.out.println(item.getCreated().
+        // format(DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss")));
         //System.out.println(item.toString());
 
     }

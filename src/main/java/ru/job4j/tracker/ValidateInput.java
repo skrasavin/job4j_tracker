@@ -8,6 +8,7 @@ public class ValidateInput implements Input {
         this.out = out;
         this.in = input;
     }
+
     @Override
     public String askStr(String question) {
         return in.askStr(question);

@@ -1,6 +1,5 @@
 package ru.job4j.tracker.collection.array2;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
