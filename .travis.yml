@@ -3,10 +3,6 @@ language: java
 jdk:
   - openjdk14
 
-env:
-  global:
-    CODECOV_TOKEN="1f13c06c-74a9-4bcc-b054-4b7fc0142705"
-
 # используем режим обычного пользователя для сборки проекта.
 sudo: false
 
@@ -19,8 +15,11 @@ after_success:
 notifications:
   email:
     recipients:
-      -s-krasssavin@mail.ru
+      - s-krasssavin@mail.ru
     on_success: never # default: change
     on_failure: always # defa,ult: always
 
+env:
+  global:
+    CODECOV_TOKEN="1f13c06c-74a9-4bcc-b054-4b7fc0142705"
 
