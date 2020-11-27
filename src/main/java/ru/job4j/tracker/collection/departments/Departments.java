@@ -1,9 +1,6 @@
 package ru.job4j.tracker.collection.departments;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Departments {
 
@@ -25,9 +22,11 @@ public class Departments {
         return new ArrayList<>(tmp);
     }
 
-    public static void sortAsc(List<String> orgs) {
+    public static void sortAsc(List<String> args) {
+        Collections.sort(args);
     }
 
-    public static void sortDesc(List<String> orgs) {
+    public static void sortDesc(List<String> args) {
+        Collections.sort(args, new DepDescComp());
     }
 }

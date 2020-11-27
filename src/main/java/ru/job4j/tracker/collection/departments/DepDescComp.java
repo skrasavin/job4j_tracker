@@ -3,22 +3,19 @@ package ru.job4j.tracker.collection.departments;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 public class DepDescComp implements Comparator<String> {
     @Override
     public int compare(String left, String right) {
-
-        String s = left.split("/", 3)[2];
-        int i = 0;
-        String s2 = right.split("/", 2)[1];
-        ArrayList<String> arrays = new ArrayList<>();
-//        arrays.add(left.split("/",));
-        String s3 = s.split("K", 2)[1];
-        String s4 = s.split("K", 2)[1];
-        if (left.compareTo(right) < 0) {
-            System.out.println("hello");
+        String[] arrLeft = left.split("/");
+        String[] arrRight = right.split("/");
+        int index = 0;
+        int rsl = 0;
+        rsl = arrRight[index].compareTo(arrLeft[index]);
+        if (rsl != 0) {
+            return arrLeft[index].compareTo(arrRight[index]);
         }
-        return left.compareTo(right);
-
+        return rsl;
     }
 }
