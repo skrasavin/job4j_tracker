@@ -8,13 +8,14 @@ public class Departments {
         Set<String> tmp = new LinkedHashSet<>();
 
         for (String value : deps) {
-            String start = "";
+            StringBuilder start = new StringBuilder();
             for (String el : value.split("/")) {
-                if (!start.equals("")) {
-                    tmp.add(start += "/" + el);
-                }else {
+                if (!start.toString().equals("")) {
+                    start.append("/").append(el);
+                    tmp.add(start.toString());
+                } else {
                     tmp.add(el);
-                    start = el;
+                    start = new StringBuilder(el);
                 }
             }
         }
@@ -27,6 +28,6 @@ public class Departments {
     }
 
     public static void sortDesc(List<String> args) {
-        Collections.sort(args, new DepDescComp());
+        args.sort(new DepDescComp());
     }
 }
