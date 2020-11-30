@@ -19,19 +19,29 @@ public class Attachment {
         return size;
     }
 
-    Comparator<Attachment> comparator = new Comparator<Attachment>() {
-        @Override
-
-        public int compare(Attachment o1, Attachment o2) {
-            return o1.getSize() - o2.getSize();
-        }
-    };
-
     @Override
     public String toString() {
         return "{" +
                 "name='" + name + '\'' +
                 ", size=" + size +
                 '}';
+    }
+
+    public static void main(String[] args) {
+        Comparator<Attachment> comparator = new Comparator<Attachment>() {
+            @Override
+
+            public int compare(Attachment o1, Attachment o2) {
+                return o1.getSize() - o2.getSize();
+            }
+        };
+
+        Comparator<Attachment> comparatorAtt = new Comparator<Attachment>() {
+            @Override
+
+            public int compare(Attachment o1, Attachment o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        };
     }
 }
