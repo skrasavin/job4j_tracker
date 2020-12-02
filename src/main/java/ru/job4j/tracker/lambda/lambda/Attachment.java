@@ -48,5 +48,9 @@ public class Attachment {
 
         Comparator<String> cmpDescSize = (left, right) -> right.length() - left.length();
 
+        Comparator<String> compar = (left, right) -> {
+            System.out.println("compare - " + left.length() + " : " + right.length());
+            return right.length() - left.length();
+        };
     }
 }
