@@ -43,5 +43,10 @@ public class Attachment {
                 return o1.getName().compareTo(o2.getName());
             }
         };
+
+        Comparator<String> cmpText = (left, right) -> left.compareTo(right) ;
+
+        Comparator<String> cmpDescSize = (left, right) -> right.length() - left.length();
+
     }
 }
