@@ -9,9 +9,18 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class School {
-    public Map<String, Integer> collect(List<Student> students, Predicate<Student> predict) {
+    public List<Student> collect(List<Student> students, Predicate<Student> predict) {
         return students.stream().filter(
                 predict
-        ).collect(Collectors.toMap(Student::getSurname, Student::getScore));
+                ).collect(Collectors.toList());
+    }
+
+    public Map<String, Integer> collectWithMap(List<Student> students) {
+        return students.stream()
+                    .collect(Collectors.toMap(
+                        student -> student.getSurname(),
+                        student -> student.getScore(),
+                        (existing, replacement) -> existing)
+                );
     }
 }

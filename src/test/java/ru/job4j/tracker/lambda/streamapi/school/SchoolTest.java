@@ -1,10 +1,12 @@
 package ru.job4j.tracker.lambda.streamapi.school;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 
 import static org.hamcrest.core.Is.is;
@@ -61,4 +63,17 @@ public class SchoolTest {
         expected.add(new Student(40, "Surname4"));
         assertThat(rsl, is(expected));
     }
+
+    @Test
+    public void whenCollectClassWithMap() {
+        List<Student> newList = new ArrayList<>();
+        newList.add(new Student(10, "Surname1"));
+        newList.add(new Student(20, "Surname2"));
+        newList.add(new Student(20, "Surname2"));
+        newList.add(new Student(30, "Surname3"));
+
+        Map<String, Integer> expected = new School().collectWithMap(newList);
+        assertThat(expected.size(), is(3));
+    }
+
 }
