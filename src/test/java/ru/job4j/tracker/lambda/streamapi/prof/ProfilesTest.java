@@ -2,6 +2,7 @@ package ru.job4j.tracker.lambda.streamapi.prof;
 
 import org.junit.Test;
 
+import java.lang.ref.PhantomReference;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -23,5 +24,13 @@ public class ProfilesTest {
         List<Address> l = new Profiles().collect(profiles);
         Address extend = l.get(0);
         assertThat(extend, is(firstAdd));
+    }
+
+    @Test
+    public void testMatrix() {
+        Integer[][] matrix = {{1, 2}, {3, 4}};
+        List<Integer> expected = List.of(1, 2, 3, 4);
+        List<Integer> output = new Profiles().testList(matrix);
+        assertThat(expected, is(output));
     }
 }

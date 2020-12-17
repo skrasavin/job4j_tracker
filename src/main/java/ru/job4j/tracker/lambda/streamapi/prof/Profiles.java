@@ -1,5 +1,6 @@
 package ru.job4j.tracker.lambda.streamapi.prof;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,5 +13,10 @@ public class Profiles {
                 .distinct()
                 .collect(Collectors.toList());
 
+    }
+
+    public List<Integer> testList(Integer[][] matrix) {
+        return Arrays.stream(matrix).flatMap(Arrays::stream)
+                .collect(Collectors.toList());
     }
 }
