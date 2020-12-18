@@ -20,13 +20,11 @@ public class BankService {
         }
     }
 
+    //найти пользователя по паспорту
     public User findByPassport(String passport) {
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                return user;
-            }
-        }
-        return null;
+                return users.keySet().stream().filter(
+                        user -> user.getPassport().equals(passport)
+                ).findAny().orElse(null);
     }
 
     //найти счёт по реквизитам
@@ -35,14 +33,9 @@ public class BankService {
         if (user == null) {
             return null;
         }
-        ArrayList<Account> accounts = (ArrayList<Account>) users.get(user);
-        for (Account account : accounts) {
-            if (account.getRequisite().equals(requisite)) {
-                return account;
-            }
-        }
-
-        return null;
+        return users.get(user).stream().filter(
+          account -> account.getRequisite().equals(requisite)
+        ).findAny().orElse(null);
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,

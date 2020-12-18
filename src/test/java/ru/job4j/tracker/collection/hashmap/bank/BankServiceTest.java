@@ -8,6 +8,30 @@ import static org.junit.Assert.*;
 public class BankServiceTest {
 
     @Test
+    public void findByPass() {
+        User user = new User("3434", "Petr Arsentev");
+        User user1 = new User("5252", "Gerbert Schmidt");
+        BankService bank = new BankService();
+        bank.addUser(user);
+        bank.addUser(user1);
+        User expected = bank.findByPassport("3434");
+        assertThat(expected, is(user));
+    }
+
+    @Test
+    public void findByAcc() {
+        User user = new User("3434", "Petr Arsentev");
+        User user1 = new User("5252", "Gerbert Schmidt");
+        BankService bank = new BankService();
+        bank.addUser(user);
+        bank.addUser(user1);
+        bank.addAccount("3434", new Account("57897", 252));
+        bank.addAccount("5252", new Account("77778", 5547));
+        Double expected = bank.findByRequisite("5252", "77778").getBalance();
+        assertThat(expected, is(5547D));
+    }
+
+    @Test
     public void addUser() {
         User user = new User("3434", "Petr Arsentev");
         BankService bank = new BankService();
