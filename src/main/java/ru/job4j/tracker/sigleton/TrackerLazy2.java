@@ -1,6 +1,9 @@
 package ru.job4j.tracker.sigleton;
 import ru.job4j.tracker.Tracker;
 
+/**
+ * TrackerLazy2
+ */
 public class TrackerLazy2 {
 
     public static Tracker getInstance() {

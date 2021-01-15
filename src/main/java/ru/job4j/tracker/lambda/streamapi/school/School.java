@@ -8,6 +8,9 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/**
+ * school
+ */
 public class School {
     public List<Student> collect(List<Student> students, Predicate<Student> predict) {
         return students.stream().filter(
@@ -18,8 +21,8 @@ public class School {
     public Map<String, Integer> collectWithMap(List<Student> students) {
         return students.stream()
                     .collect(Collectors.toMap(
-                        student -> student.getSurname(),
-                        student -> student.getScore(),
+                            Student::getSurname,
+                            Student::getScore,
                         (existing, replacement) -> existing)
                 );
     }

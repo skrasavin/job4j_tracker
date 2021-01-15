@@ -1,5 +1,8 @@
 package ru.job4j.tracker.lambda.streamapi.prof;
 
+/**
+ * profile
+ */
 public class Profile {
     private Address address;
 

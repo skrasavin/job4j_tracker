@@ -2,6 +2,9 @@ package ru.job4j.tracker.collection.hashmap.passport;
 
 import java.util.Objects;
 
+/**
+ * Citizen
+ */
 public class Citizen {
     private String passport;
     private String username;

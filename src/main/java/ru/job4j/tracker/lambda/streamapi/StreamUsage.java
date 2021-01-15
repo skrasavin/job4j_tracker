@@ -2,7 +2,14 @@ package ru.job4j.tracker.lambda.streamapi;
 
 import java.util.List;
 
+/**
+ * streamUsage
+ */
 public class StreamUsage {
+
+    /**
+     * task
+     */
     public static class Task {
         private final String name;
         private final long spent;

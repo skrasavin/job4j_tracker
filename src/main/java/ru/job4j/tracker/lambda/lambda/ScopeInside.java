@@ -2,12 +2,14 @@ package ru.job4j.tracker.lambda.lambda;
 
 import java.util.function.Supplier;
 
+/**
+ * ScopeInside
+ */
 public class ScopeInside {
     public static void main(String[] args) {
         int[] number = {1, 2, 3, 4};
         int total = 0;
-        for (int i = 0; i < number.length; i++) {
-            int num = number[i];
+        for (int num : number) {
             int scopeTotal = total;
             total = add(
                     () -> scopeTotal + num

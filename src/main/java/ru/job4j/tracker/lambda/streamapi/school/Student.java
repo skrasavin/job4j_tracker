@@ -2,6 +2,9 @@ package ru.job4j.tracker.lambda.streamapi.school;
 
 import java.util.Objects;
 
+/**
+ * student
+ */
 public class Student {
     private int score;
 
@@ -29,8 +32,8 @@ public class Student {
             return false;
         }
         Student student = (Student) o;
-        return score == student.score &&
-                Objects.equals(surname, student.surname);
+        return score == student.score
+                && Objects.equals(surname, student.surname);
     }
 
     @Override

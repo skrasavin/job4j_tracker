@@ -1,5 +1,8 @@
 package ru.job4j.tracker.collection.sort.job;
 
+/**
+ * Job
+ */
 public class Job implements Comparable<Job> {
     private String name;
     private int priority;

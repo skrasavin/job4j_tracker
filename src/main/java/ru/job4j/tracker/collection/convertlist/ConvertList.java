@@ -3,6 +3,9 @@ package ru.job4j.tracker.collection.convertlist;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ConvertList
+ */
 public class ConvertList {
     public static List<Integer> convert(List<int[]> list) {
         List<Integer> rsl = new ArrayList<>();

@@ -3,6 +3,9 @@ package ru.job4j.tracker.collection.hashset.text;
 import java.util.Collections;
 import java.util.HashSet;
 
+/**
+ * UniqueText
+ */
 public class UniqueText {
     public static boolean isEquals(String originText, String duplicateText) {
         boolean rsl = true;

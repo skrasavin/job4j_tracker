@@ -2,6 +2,9 @@ package ru.job4j.tracker.collection.priority;
 
 import java.util.LinkedList;
 
+/**
+ * PriorityQueue
+ */
 public class PriorityQueue {
     private LinkedList<Task> tasks = new LinkedList<>();
 

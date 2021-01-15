@@ -3,6 +3,9 @@ package ru.job4j.tracker.lambda.lambda.search;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
+/**
+ * PhoneDict
+ */
 public class PhoneDictionary {
     private ArrayList<Person> persons = new ArrayList<>();
 
@@ -16,7 +19,9 @@ public class PhoneDictionary {
         Predicate<Person> compareSurname = person -> person.getSurname().equals(key);
         Predicate<Person> comparePhone = person -> person.getPhone().equals(key);
         Predicate<Person> compareAddress = person -> person.getAddress().equals(key);
-        Predicate<Person> combine = compareName.or(compareSurname).or(comparePhone).or(compareAddress);
+        Predicate<Person> combine = compareName.or(compareSurname)
+                .or(comparePhone)
+                .or(compareAddress);
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
             if (combine.test(person)) {

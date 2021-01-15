@@ -6,13 +6,26 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * startUI
+ */
 public class StartUI {
     private final Output out;
 
+    /**
+     * StartUI
+     * @param out test
+     */
     public StartUI(Output out) {
         this.out = out;
     }
 
+    /**
+     * Init
+     * @param input test
+     * @param tracker test
+     * @param actions test
+     */
     public void init(Input input, Tracker tracker, ArrayList<UserAction> actions) {
         boolean run = true;
         while (run) {
@@ -34,6 +47,10 @@ public class StartUI {
         }
     }
 
+    /**
+     * main
+     * @param args test
+     */
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());

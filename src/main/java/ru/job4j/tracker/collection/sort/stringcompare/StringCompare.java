@@ -2,6 +2,9 @@ package ru.job4j.tracker.collection.sort.stringcompare;
 
 import java.util.Comparator;
 
+/**
+ * StringCompare
+ */
 public class StringCompare implements Comparator<String> {
     @Override
     public int compare(String left, String right) {

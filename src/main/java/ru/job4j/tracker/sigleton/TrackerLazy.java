@@ -4,6 +4,9 @@ import ru.job4j.tracker.Tracker;
 
 import javax.sound.midi.Track;
 
+/**
+ * TrackerLazy
+ */
 public class TrackerLazy {
     private static Tracker instance;
 

@@ -2,6 +2,9 @@ package ru.job4j.tracker.collection.search;
 
 import java.util.ArrayList;
 
+/**
+ * PhoneDictionary
+ */
 public class PhoneDictionary {
     private ArrayList<Person> persons = new ArrayList<>();
 

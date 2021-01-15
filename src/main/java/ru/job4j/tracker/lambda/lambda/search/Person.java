@@ -1,5 +1,8 @@
 package ru.job4j.tracker.lambda.lambda.search;
 
+/**
+ * Person
+ */
 public class Person {
     private String name;
     private String surname;

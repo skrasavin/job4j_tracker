@@ -1,5 +1,8 @@
 package ru.job4j.tracker.collection.hashset.task;
 
+/**
+ * Task
+ */
 public class Task {
     private String number;
     private String description;

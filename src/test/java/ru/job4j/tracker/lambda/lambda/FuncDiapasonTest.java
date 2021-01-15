@@ -8,7 +8,6 @@ import java.util.List;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-
 public class FuncDiapasonTest {
 
     @Test
@@ -27,7 +26,7 @@ public class FuncDiapasonTest {
 
     @Test
     public void whenLinearFunctionThenPowResults() {
-        List<Double> result = new FuncDiapason().diapason(5, 8, x -> Math.pow(x,3));
+        List<Double> result = new FuncDiapason().diapason(5, 8, x -> Math.pow(x, 3));
         List<Double> expected = Arrays.asList(125D, 216D, 343D);
         assertThat(result, is(expected));
     }

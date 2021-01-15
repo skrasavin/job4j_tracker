@@ -2,6 +2,9 @@ package ru.job4j.tracker.collection.sort.user;
 
 import java.util.Objects;
 
+/**
+ * User
+ */
 public class User implements Comparable<User> {
     private String name;
     private int age;

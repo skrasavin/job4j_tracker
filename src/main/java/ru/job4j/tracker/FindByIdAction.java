@@ -2,9 +2,16 @@ package ru.job4j.tracker;
 
 import java.util.Objects;
 
+/**
+ * FindByIdAction
+ */
 public class FindByIdAction implements UserAction {
     private final Output out;
 
+    /**
+     * FindByIdAction
+     * @param out test
+     */
     public FindByIdAction(Output out) {
         this.out = out;
     }

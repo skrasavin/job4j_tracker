@@ -2,6 +2,9 @@ package ru.job4j.tracker.lambda.streamapi.prof;
 
 import java.util.Objects;
 
+/**
+ * address
+ */
 public class Address {
     private String city;
     private String street;

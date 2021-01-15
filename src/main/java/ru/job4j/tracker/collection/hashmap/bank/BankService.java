@@ -3,7 +3,7 @@ package ru.job4j.tracker.collection.hashmap.bank;
 import java.util.*;
 
 /**
- * @autor sskrasavin
+ * @author sskrasavin
  * @version 1.0
  */
 public class BankService {

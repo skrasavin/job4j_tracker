@@ -1,5 +1,8 @@
 package ru.job4j.tracker.collection.priority;
 
+/**
+ * Task
+ */
 public class Task {
     private String desc;
     private int priority;

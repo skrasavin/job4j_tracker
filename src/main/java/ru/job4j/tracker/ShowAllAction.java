@@ -3,9 +3,16 @@ package ru.job4j.tracker;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ShowAllAction
+ */
 public class ShowAllAction implements UserAction {
     private final Output out;
 
+    /**
+     * showAllAction
+     * @param out test
+     */
     public ShowAllAction(Output out) {
         this.out = out;
     }

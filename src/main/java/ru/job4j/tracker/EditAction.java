@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+/**
+ * EditAction
+ */
 public class EditAction implements UserAction {
     @Override
     public String name() {

@@ -2,6 +2,9 @@ package ru.job4j.tracker;
 
 import java.util.Comparator;
 
+/**
+ * SortByName
+ */
 public class SortByName implements Comparator<Item> {
     @Override
     public int compare(Item o1, Item o2) {

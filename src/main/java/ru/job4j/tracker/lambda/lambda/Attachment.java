@@ -2,6 +2,9 @@ package ru.job4j.tracker.lambda.lambda;
 
 import java.util.Comparator;
 
+/**
+ * Attachment
+ */
 public class Attachment {
     private String name;
     private int size;
@@ -21,30 +24,18 @@ public class Attachment {
 
     @Override
     public String toString() {
-        return "{" +
-                "name='" + name + '\'' +
-                ", size=" + size +
-                '}';
+        return "{"
+                + "name='" + name + '\''
+                + ", size=" + size
+                + '}';
     }
 
     public static void main(String[] args) {
-        Comparator<Attachment> comparator = new Comparator<Attachment>() {
-            @Override
+        Comparator<Attachment> comparator = Comparator.comparingInt(Attachment::getSize);
 
-            public int compare(Attachment o1, Attachment o2) {
-                return o1.getSize() - o2.getSize();
-            }
-        };
+        Comparator<Attachment> comparatorAtt = Comparator.comparing(Attachment::getName);
 
-        Comparator<Attachment> comparatorAtt = new Comparator<Attachment>() {
-            @Override
-
-            public int compare(Attachment o1, Attachment o2) {
-                return o1.getName().compareTo(o2.getName());
-            }
-        };
-
-        Comparator<String> cmpText = (left, right) -> left.compareTo(right) ;
+        Comparator<String> cmpText = Comparator.naturalOrder();
 
         Comparator<String> cmpDescSize = (left, right) -> right.length() - left.length();
 

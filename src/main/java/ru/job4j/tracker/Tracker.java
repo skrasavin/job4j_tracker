@@ -4,21 +4,38 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Tracker
+ */
 public class Tracker {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
     private int size = 0;
 
+    /**
+     * add
+     * @param item test
+     * @return Item
+     */
     public Item add(Item item) {
         item.setId(ids++);
         items.add(item);
         return item;
     }
 
+    /**
+     * findAll
+     * @return List
+     */
     public List<Item> findAll() {
         return items;
     }
 
+    /**
+     * findByName
+     * @param key test
+     * @return arrList
+     */
     public ArrayList<Item> findByName(String key) {
         ArrayList<Item> rsl = new ArrayList<>();
         for (Item item : items) {
@@ -29,6 +46,11 @@ public class Tracker {
         return rsl;
     }
 
+    /**
+     * findById
+     * @param id test
+     * @return Item
+     */
     public Item findById(int id) {
         int index = indexOf(id);
         return index != -1 ? items.get(index) : null;
@@ -45,6 +67,12 @@ public class Tracker {
         return rsl;
     }
 
+    /**
+     * replace
+     * @param id test
+     * @param item test
+     * @return bool
+     */
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         if (index != -1) {
@@ -55,6 +83,11 @@ public class Tracker {
         return false;
     }
 
+    /**
+     * delete
+     * @param id test
+     * @return bool
+     */
     public boolean delete(int id) {
         int index = indexOf(id);
         if (index != -1) {

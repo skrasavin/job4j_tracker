@@ -1,5 +1,8 @@
 package ru.job4j.tracker.strategy;
 
+/**
+ * square
+ */
 public class Square implements Shape {
     @Override
     public String draw() {

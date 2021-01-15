@@ -1,9 +1,16 @@
 package ru.job4j.tracker;
 
+/**
+ * StubInput
+ */
 public class StubInput implements Input {
     private String[] answers;
     private int position = 0;
 
+    /**
+     * stubInput
+     * @param answers test
+     */
     public StubInput(String[] answers) {
         this.answers = answers;
     }

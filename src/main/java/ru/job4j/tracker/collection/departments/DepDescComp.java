@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * DepDescComp
+ */
 public class DepDescComp implements Comparator<String> {
     @Override
     public int compare(String left, String right) {

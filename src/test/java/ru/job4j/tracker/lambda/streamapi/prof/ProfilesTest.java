@@ -19,7 +19,8 @@ public class ProfilesTest {
         Address thirdAdd = new Address("Piter", "Ligovskiy", 7, 13);
         Address fourthAdd = new Address("Saratov", "Koroleva", 1, 20);
 
-        List<Profile> profiles = List.of(new Profile(firstAdd), new Profile(secondAdd), new Profile(thirdAdd),
+        List<Profile> profiles = List.of(new Profile(firstAdd),
+                new Profile(secondAdd), new Profile(thirdAdd),
                 new Profile(fourthAdd));
         List<Address> l = new Profiles().collect(profiles);
         Address extend = l.get(0);

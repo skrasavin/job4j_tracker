@@ -2,6 +2,9 @@ package ru.job4j.tracker.collection.hashmap.order;
 
 import java.util.Objects;
 
+/**
+ * Order
+ */
 public class Order {
     private String number;
     private String name;

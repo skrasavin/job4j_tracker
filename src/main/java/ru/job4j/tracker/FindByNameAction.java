@@ -2,9 +2,16 @@ package ru.job4j.tracker;
 
 import java.util.ArrayList;
 
+/**
+ * FindByNameAction
+ */
 public class FindByNameAction implements UserAction {
     private final Output out;
 
+    /**
+     * FindByNameAction
+     * @param out test
+     */
     public FindByNameAction(Output out) {
         this.out = out;
     }

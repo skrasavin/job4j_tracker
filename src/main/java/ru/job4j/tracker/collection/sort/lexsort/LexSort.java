@@ -2,6 +2,9 @@ package ru.job4j.tracker.collection.sort.lexsort;
 
 import java.util.Comparator;
 
+/**
+ * LexSort
+ */
 public class LexSort implements Comparator<String> {
 
     @Override

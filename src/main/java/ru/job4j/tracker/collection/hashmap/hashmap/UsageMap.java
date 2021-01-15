@@ -2,6 +2,9 @@ package ru.job4j.tracker.collection.hashmap.hashmap;
 
 import java.util.HashMap;
 
+/**
+ * UsageMap
+ */
 public class UsageMap {
     public static void main(String[] args) {
         HashMap<String, String> map = new HashMap<>();

@@ -2,6 +2,9 @@ package ru.job4j.tracker.collection.hashmap.bank;
 
 import java.util.Objects;
 
+/**
+ * User
+ */
 public class User {
     private String passport;
     private String username;
