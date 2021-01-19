@@ -15,12 +15,12 @@ public class PriorityQueue {
      * @param task задача
      */
     public void put(Task task) {
-        int index = 0;
+        var index = 0;
         if (index == tasks.size()) {
             this.tasks.add(task);
         }
 
-        for (Task element : tasks) {
+        for (var element : tasks) {
             if (task.getPriority() < element.getPriority()) {
                 this.tasks.add(index, task);
                 break;
@@ -32,7 +32,7 @@ public class PriorityQueue {
 
     public void show() {
         System.out.println("size:" + tasks.size());
-        for (Task el : tasks) {
+        for (var el : tasks) {
             System.out.print("Tasks: " + el.getDesc());
             System.out.println(" - priority: " + el.getPriority());
         }
