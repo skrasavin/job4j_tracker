@@ -13,9 +13,10 @@ import static org.junit.Assert.*;
 public class OrderConvertTest {
     @Test
     public void whenSingleOrder() {
-        List<Order> orders = new ArrayList<>();
-        orders.add(new Order("3sfe", "Dress"));
-        orders.add(new Order("3sfe1", "Dresses"));
+        List<Order> orders = List.of(
+                new Order("3sfe", "Dress"),
+                new Order("3sfe1", "Dresses")
+        );
         HashMap<String, Order> map = OrderConvert.process(orders);
         assertThat(map.get("3sfe1"), is(new Order("3sfe1", "Dresses")));
     }
