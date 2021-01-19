@@ -2,6 +2,8 @@ package ru.job4j.tracker.collection.hashmap.bank;
 
 import org.junit.Test;
 
+import java.util.Optional;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -14,8 +16,13 @@ public class BankServiceTest {
         BankService bank = new BankService();
         bank.addUser(user);
         bank.addUser(user1);
-        User expected = bank.findByPassport("3434");
-        assertThat(expected, is(user));
+        Optional<User> expected = bank.findByPassport("3434");
+        String name = null;
+        if (expected.isPresent()) {
+            System.out.println(expected.get().getUsername());
+            name = expected.get().getUsername();
+        }
+        assertThat(name, is(user.getUsername()));
     }
 
     @Test

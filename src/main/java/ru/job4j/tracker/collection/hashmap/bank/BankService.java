@@ -24,8 +24,8 @@ public class BankService {
      * @param account - аккаунт, который добавляется
      */
     public void addAccount(String passport, Account account) {
-        if (findByPassport(passport) != null) {
-            User user = findByPassport(passport);
+        if (findByPassport(passport).isPresent()) {
+            Optional<User> user = findByPassport(passport);
             List<Account> accounts = users.get(user);
             if (!accounts.contains(account)) {
                 accounts.add(account);
@@ -38,10 +38,15 @@ public class BankService {
      * @param passport - чтобы найти пользователя
      * @return - юзера
      */
-    public User findByPassport(String passport) {
-                return users.keySet().stream().filter(
-                        user -> user.getPassport().equals(passport)
-                ).findAny().orElse(null);
+    public Optional<User> findByPassport(String passport) {
+        Optional<User> rsl = Optional.empty();
+        for (User user : users.keySet()) {
+            if (user.getPassport().equals(passport)) {
+                rsl = Optional.of(user);
+                break;
+            }
+        }
+        return rsl;
     }
 
     /**
@@ -51,8 +56,8 @@ public class BankService {
      * @return - нужный счёт
      */
     public Account findByRequisite(String passport, String requisite) {
-        User user = findByPassport(passport);
-        if (user == null) {
+        Optional<User> user = findByPassport(passport);
+        if (user.isEmpty()) {
             return null;
         }
         return users.get(user).stream().filter(
