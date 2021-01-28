@@ -11,6 +11,18 @@ import static org.junit.Assert.*;
 public class BankServiceTest {
 
     @Test
+    public void findByP() {
+        User user = new User("3434", "Petr Arsentev");
+        User user1 = new User("5252", "Gerbert Schmidt");
+        BankService bank = new BankService();
+        bank.addUser(user);
+        bank.addUser(user1);
+        Optional<User> expected = bank.findByPassport("5253");
+        String name = "Petr Arsentev";
+    }
+
+
+    @Test
     public void findByPass() {
         User user = new User("3434", "Petr Arsentev");
         User user1 = new User("5252", "Gerbert Schmidt");

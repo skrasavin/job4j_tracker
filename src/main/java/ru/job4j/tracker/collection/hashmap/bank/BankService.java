@@ -39,13 +39,10 @@ public class BankService {
      * @return - юзера
      */
     public Optional<User> findByPassport(String passport) {
-        Optional<User> rsl = Optional.empty();
-        for (var user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                rsl = Optional.of(user);
-                break;
-            }
-        }
+        Optional<User> rsl = users.keySet().stream()
+                .filter(e -> e.getPassport()
+                .equals(passport))
+                .findFirst();
         return rsl;
     }
 
@@ -57,15 +54,13 @@ public class BankService {
      */
     public Optional<Account> findByRequisite(String passport, String requisite) {
         Optional<User> user = findByPassport(passport);
+
         if (user.isPresent()) {
-            for (var acoount : users.get(user.get())) {
-                if (acoount.getRequisite().equals(requisite)) {
-                    return Optional.of(acoount);
-                }
-            }
-//            return users.get(user).stream().filter(
-//                    account -> account.getRequisite().equals(requisite)
-//            ).findAny().orElse(null);
+            Optional<Account> acc = users.get(user.get()).stream()
+                    .filter(e -> e.getRequisite().equals(requisite))
+                    .findFirst();
+
+            return acc;
         }
         return Optional.empty();
     }
@@ -83,7 +78,7 @@ public class BankService {
                                  String destPassport, String destRequisite, double amount) {
         Optional<Account> srcAccount = findByRequisite(srcPassport, srcRequisite);
         Optional<Account> destAccount = findByRequisite(destPassport, destRequisite);
-        if (srcAccount != null && destAccount != null) {
+        if (srcAccount.isPresent() && destAccount.isPresent()) {
             if (srcAccount.get().getBalance() - amount < 0) {
                 return false;
             }
