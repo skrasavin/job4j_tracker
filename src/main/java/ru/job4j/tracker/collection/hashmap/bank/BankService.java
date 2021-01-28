@@ -67,7 +67,7 @@ public class BankService {
 //                    account -> account.getRequisite().equals(requisite)
 //            ).findAny().orElse(null);
         }
-        return null;
+        return Optional.empty();
     }
 
     /**
