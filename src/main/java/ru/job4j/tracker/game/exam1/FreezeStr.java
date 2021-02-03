@@ -4,25 +4,38 @@ import java.util.HashMap;
 
 public class FreezeStr {
 
-    public static HashMap<Integer, Character> inMap(String text) {
-        var words = new HashMap<Integer, Character>();
-
+    public static HashMap<Character, Integer> inMap2(String text) {
+        var letters = new HashMap<Character, Integer>();
         for (var a = 0; a < text.length(); a++) {
-            words.put(a, text.charAt(a));
+            int count = 0;
+
+            for (var x = 0; x < text.length(); x++) {
+                if (text.charAt(a) == text.charAt(x)) {
+                    count++;
+                }
+            }
+
+            letters.put(text.charAt(a), count);
         }
 
-        return words;
+        return letters;
     }
 
     public static boolean eq(String left, String right) {
-        HashMap<Integer, Character> leftText = FreezeStr.inMap(left);
-        HashMap<Integer, Character> rightText = FreezeStr.inMap(right);
-        for (var a = 0; a < rightText.size() - 1; a++) {
-            if (!leftText.containsValue(rightText.get(a))) {
+        var leftText = FreezeStr.inMap2(left);
+
+        for (var a = 0; a < right.length()-1; a++) {
+            if (!leftText.containsKey(right.charAt(a))) {
                 return false;
+            }else if (leftText.containsKey(right.charAt(a)) &&
+                      leftText.get(right.charAt(a)) > 1) {
+                leftText.replace(right.charAt(a), leftText.get(right.charAt(a)) - 1);
+            }else if(leftText.containsKey(right.charAt(a)) &&
+                    leftText.get(right.charAt(a)) == 1) {
+                leftText.remove(right.charAt(a));
             }
-            leftText.remove(a);
         }
+
         return true;
     }
 }
